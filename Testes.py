@@ -51,8 +51,6 @@ from time import sleep
 #
 #
 #
-# myTeamsMessage = pymsteams.connectorcard("https://outlook.office.com/webhook/150f553b-b4f3-45b6-9405-d4c73c42b70a@55a2bc67-aec1-4ad2-9a9c-5b2457b91dcd/IncomingWebhook/eb3354cbe3954b7c8823f35de5d03ca9/ac621ff2-a9de-4f3d-91ec-2db034072c8e").
-# # myTeamsMessage.text("api")
-# # myTeamsMessage.text()
+
 #
 # print(requests.get(myTeamsMessage.last_http_response).text)
