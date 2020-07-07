@@ -18,13 +18,14 @@ class Whats:
         self.lista = (By.ID, 'pane-side')
         self.grupo_name = input('Insira o nome de um contato ou grupo: ')
         self.grupo = (By.XPATH, f"//span[@title='{self.grupo_name}']")
-        self.Ler_mensagens = (By.XPATH, '//div[@class="z_tTQ"]')
+        self.Ler_mensagens = (By.XPATH, '//div[contains(@class,"message-in focusable-list-item")]')
         self.box_msg = (By.CLASS_NAME,'_3uMse')
         self.btn = (By.XPATH, f'//span[@data-icon="send"]')
         self.driver.get(self._url)
-        sleep(15)
+        sleep(10)
 
     def groupo(self):
+        print('Procurando grupo...')
         for grupos in self.driver.find_elements(*self.lista):
             grupos.find_element(*self.grupo).click()
             sleep(2)
