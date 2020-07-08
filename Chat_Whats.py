@@ -25,7 +25,6 @@ class Whats:
         sleep(10)
 
     def groupo(self):
-        print('Procurando grupo...')
         for grupos in self.driver.find_elements(*self.lista):
             grupos.find_element(*self.grupo).click()
             sleep(2)
@@ -33,8 +32,13 @@ class Whats:
     def ler_msg(self):
         conv = list()
         for total in self.driver.find_elements(*self.Ler_mensagens):
-            conv.append(total.text.split('\n')[-2])
-        return conv[-1]
+            conv.append(total.text.split('\n'))
+        conv[-1].pop()
+        conv = '\n'.join(conv[-1][1:])
+        if conv.startswith('Encaminhada'):
+            print(conv.replace('Encaminhada',''))
+        else:
+            print(conv)
 
     def envia_msg(self, msg = None):
         if msg != None or msg != '':
