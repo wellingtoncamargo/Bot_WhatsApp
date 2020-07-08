@@ -32,13 +32,13 @@ class Whats:
     def ler_msg(self):
         conv = list()
         for total in self.driver.find_elements(*self.Ler_mensagens):
-            conv.append(total.text.split('\n'))
+            conv.append(total.text.split('\n')[-1])
         conv[-1].pop()
-        conv = '\n'.join(conv[-1][1:])
-        if conv.startswith('Encaminhada'):
-            print(conv.replace('Encaminhada',''))
-        else:
-            print(conv)
+        # conv = '\n'.join(conv[-1][1:])
+        # if conv.startswith('Encaminhada'):
+        #     return conv.replace('Encaminhada','')
+        # else:
+        return conv[-1]
 
     def envia_msg(self, msg = None):
         if msg != None or msg != '':
